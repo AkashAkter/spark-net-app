@@ -2,25 +2,79 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --primary: #2e7d5a;
+  --secondary: #1c2a39;
+  --light-bg: #a5d6a7;
+  --white: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Removed @theme inline block due to unknown at-rule error. 
+   If you need these variables, define them in :root or another selector. */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto), "Roboto", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-inter), "Inter", var(--font-roboto), sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--foreground);
+}
+
+/* Utility classes for your color palette */
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-light {
+  background-color: var(--light-bg);
+}
+.bg-white {
+  background-color: var(--white);
+}
+
+/* Social media focused styling */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary);
+  transition: color 0.2s ease;
 }
